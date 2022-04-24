@@ -87,5 +87,9 @@ Si nos carga el usuario con el valor en blanco o $True ejecutaríamos el siguien
 Set-CASMailbox -Identity sean@contoso.com -SmtpClientAuthenticationDisabled $false 
 ```
 
+{% highlight powershell %}
+Set-CASMailbox -Identity sean@contoso.com -SmtpClientAuthenticationDisabled $false
+{% endhighlight %}
+
 Documentación de apoyo:
 https://docs.microsoft.com/es-es/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission
