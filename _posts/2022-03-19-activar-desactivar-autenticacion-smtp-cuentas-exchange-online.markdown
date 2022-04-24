@@ -83,14 +83,11 @@ Get-CASMailbox -Identity Usuario@contoso.com | Format-List SmtpClientAuthenticat
 
 Si nos carga el usuario con el valor en blanco o $True ejecutaríamos el siguiente comando para habilitar la autenticación SMTP.
 
-{% include codeHeader.html %}
+
 ```powershell
 Set-CASMailbox -Identity sean@contoso.com -SmtpClientAuthenticationDisabled $false 
 ```
 
-{% highlight powershell %}
-Set-CASMailbox -Identity sean@contoso.com -SmtpClientAuthenticationDisabled $false
-{% endhighlight %}
 
 Documentación de apoyo:
 https://docs.microsoft.com/es-es/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission
