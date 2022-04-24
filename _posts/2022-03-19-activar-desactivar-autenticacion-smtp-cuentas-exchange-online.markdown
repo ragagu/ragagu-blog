@@ -17,27 +17,12 @@ Se recomienda habilitar la autenticación SMTP solo para las cuentas o buzones q
 
 > Si ha habilitado los valores predeterminados de seguridad en su empresa, AUTH SMTP ya está deshabilitado en Exchange Online.
 
-## Syntax Highlighter
+## Requisitos para activar o desactivar SMTP y conexión a Exchange Online mediante PowerShell
 
-{% highlight css %}
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #1c2021;
-}
+1. Tener habilitada la ejecución de scripts
 
-li {
-  width: 200px;
-  min-height: 250px;
-  border: 1px solid #000;
-  display: inline-block;
-  vertical-align: top;
-  margin: 5px;
-}
+{% highlight powershell %}
+Set-ExecutionPolicy RemoteSigned
 {% endhighlight %}
 
 {% highlight js %}
