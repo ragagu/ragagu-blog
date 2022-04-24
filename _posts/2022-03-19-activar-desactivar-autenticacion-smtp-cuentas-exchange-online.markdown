@@ -20,41 +20,29 @@ Se recomienda habilitar la autenticación SMTP solo para las cuentas o buzones q
 ## Requisitos para activar o desactivar SMTP y conexión a Exchange Online mediante PowerShell
 
 1. Tener habilitada la ejecución de scripts.
-
 ```powershell
 Set-ExecutionPolicy RemoteSigned
 ```
-
 2. Tener instalado el módulo de Azure AD.
-
 ```powershell
 Install-Module MSOnline
 ```
-
 3. Creamos un objeto de credenciales, para ello ejecutamos el siguiente comando e introducimos las credenciales de nuestro administrador global de Microsoft 365.
-
 ```powershell
 $credential = Get-Credential
 ```
-
 4. Importamos el módulo de Microsoft 365, para ello ejecutamos el siguiente comando.
-
 ```powershell
 Import-Module MsOnline
 ```
-
 5. Con el objeto de credenciales que creamos anteriormente con el módulo MSOnline, ahora nos podemos conectar a Microsoft 365 ejecutando el siguiente comando.
-
 ```powershell
 Connect-MsolService -Credential $credential
 ```
-
 6. Ejecutamos el siguiente comando para crear una sesión remota de Exchange Online.
-
 ```powershell
 $exchangeSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "https://outlook.office365.com/powershell-liveid/" -Credential $credential -Authentication "Basic" –AllowRedirection
 ```
-
 ```powershell
 Import-PSSession $exchangeSession
 ```
