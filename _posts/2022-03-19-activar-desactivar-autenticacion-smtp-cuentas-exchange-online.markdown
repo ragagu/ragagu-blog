@@ -59,24 +59,33 @@ $exchangeSession = New-PSSession -ConfigurationName Microsoft.Exchange -Connecti
 Import-PSSession $exchangeSession
 ```
 
-{% highlight powershell %}
-Set-ExecutionPolicy RemoteSigned
-{% endhighlight %}
+## Deshabilitar autenticación SMTP
 
-{% highlight js %}
-  $('.top').click(function () {
-    $('html, body').stop().animate({ scrollTop: 0 }, 'slow', 'swing');
-  });
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > $(window).height()) {
-      $('.top').addClass("top-active");
-    } else {
-      $('.top').removeClass("top-active");
-    };
-  });
-{% endhighlight %}
+Conectados a Exchange Online remotamente por PowerShell para deshabilitar SMTP globalmente en la compañía, ejecutamos el siguiente comando.
 
-***
+```powershell
+Set-TransportConfig -SmtpClientAuthenticationDisabled $true
+```
 
+Para comprobar que se ha deshabilitado la autenticación SMTP ejecutamos el siguiente comando y comprobamos que el valor de la propiedad SmtpClientAuthenticationDisablede es True.
 
+```powershell
+Get-TransportConfig | Format-List SmtpClientAuthenticationDisabled
+```
 
+## Habilitar autenticación SMTP
+
+Conectados a Exchange Online remotamente por PowerShell comprobamos el usuario, donde usuario@contoso.com introducimos la cuenta de usuario a revisar.
+
+```powershell
+Get-CASMailbox -Identity Usuario@contoso.com | Format-List SmtpClientAuthenticationDisabled
+```
+
+Si nos carga el usuario con el valor en blanco o $True ejecutaríamos el siguiente comando para habilitar la autenticación SMTP.
+
+```powershell
+Set-CASMailbox -Identity sean@contoso.com -SmtpClientAuthenticationDisabled $false 
+```
+
+Documentación de apoyo:
+https://docs.microsoft.com/es-es/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission

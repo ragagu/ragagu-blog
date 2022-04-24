@@ -290,21 +290,32 @@
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Import-PSSession</span><span class="w"> </span><span class="nv">$exchangeSession</span><span class="w">
 </span></code></pre></div></div>
 
-<figure class="highlight"><pre><code class="language-powershell" data-lang="powershell"><span class="n">Set-ExecutionPolicy</span><span class="w"> </span><span class="nx">RemoteSigned</span></code></pre></figure>
+<h2 id="deshabilitar-autenticación-smtp">Deshabilitar autenticación SMTP</h2>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.top</span><span class="dl">'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">html, body</span><span class="dl">'</span><span class="p">).</span><span class="nx">stop</span><span class="p">().</span><span class="nx">animate</span><span class="p">({</span> <span class="na">scrollTop</span><span class="p">:</span> <span class="mi">0</span> <span class="p">},</span> <span class="dl">'</span><span class="s1">slow</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">swing</span><span class="dl">'</span><span class="p">);</span>
-  <span class="p">});</span>
-  <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scroll</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">()</span> <span class="o">&gt;</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">height</span><span class="p">())</span> <span class="p">{</span>
-      <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.top</span><span class="dl">'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">top-active</span><span class="dl">"</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.top</span><span class="dl">'</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">top-active</span><span class="dl">"</span><span class="p">);</span>
-    <span class="p">};</span>
-  <span class="p">});</span></code></pre></figure>
+<p>Conectados a Exchange Online remotamente por PowerShell para deshabilitar SMTP globalmente en la compañía, ejecutamos el siguiente comando.</p>
 
-<hr />
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Set-TransportConfig</span><span class="w"> </span><span class="nt">-SmtpClientAuthenticationDisabled</span><span class="w"> </span><span class="bp">$true</span><span class="w">
+</span></code></pre></div></div>
 
+<p>Para comprobar que se ha deshabilitado la autenticación SMTP ejecutamos el siguiente comando y comprobamos que el valor de la propiedad SmtpClientAuthenticationDisablede es True.</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-TransportConfig</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Format-List</span><span class="w"> </span><span class="nx">SmtpClientAuthenticationDisabled</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="habilitar-autenticación-smtp">Habilitar autenticación SMTP</h2>
+
+<p>Conectados a Exchange Online remotamente por PowerShell comprobamos el usuario, donde usuario@contoso.com introducimos la cuenta de usuario a revisar.</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-CASMailbox</span><span class="w"> </span><span class="nt">-Identity</span><span class="w"> </span><span class="nx">Usuario</span><span class="err">@</span><span class="nx">contoso.com</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Format-List</span><span class="w"> </span><span class="nx">SmtpClientAuthenticationDisabled</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Si nos carga el usuario con el valor en blanco o $True ejecutaríamos el siguiente comando para habilitar la autenticación SMTP.</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Set-CASMailbox</span><span class="w"> </span><span class="nt">-Identity</span><span class="w"> </span><span class="nx">sean</span><span class="err">@</span><span class="nx">contoso.com</span><span class="w"> </span><span class="nt">-SmtpClientAuthenticationDisabled</span><span class="w"> </span><span class="bp">$false</span><span class="w"> 
+</span></code></pre></div></div>
+
+<p>Documentación de apoyo:
+https://docs.microsoft.com/es-es/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission</p>
 
     </div>
 

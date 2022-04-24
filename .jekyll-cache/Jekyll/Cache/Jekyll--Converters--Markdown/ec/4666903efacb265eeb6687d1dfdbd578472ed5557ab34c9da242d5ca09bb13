@@ -1,0 +1,62 @@
+I"�<p>El protocolo SMTP se usa en los siguientes escenarios en Microsoft 365:</p>
+
+<ul>
+  <li>Clientes POP3 e IMAP4</li>
+  <li>Aplicaciones, servidores de informes y dispositivos multifunción que generan y envían mensajes de correo electrónico.</li>
+</ul>
+
+<p>El puerto que se usa para la autenticación SMTP es TCP 587.</p>
+
+<p>Se recomienda habilitar la autenticación SMTP solo para las cuentas o buzones que lo requieran dado que todos los clientes de correo eletrónico modernos que se conectan a Exchange Online o Microsoft 365, como por ejemplo, Outlook, Outlook en la web, Mail de iOS, Outlook para iOS y Android, etc. no usan la autenticación SMTP para enviar mensajes de correo electrónico.</p>
+
+<blockquote>
+  <p>Si ha habilitado los valores predeterminados de seguridad en su empresa, AUTH SMTP ya está deshabilitado en Exchange Online.</p>
+</blockquote>
+
+<h2 id="requisitos-para-activar-o-desactivar-smtp-y-conexión-a-exchange-online-mediante-powershell">Requisitos para activar o desactivar SMTP y conexión a Exchange Online mediante PowerShell</h2>
+
+<ol>
+  <li>Tener habilitada la ejecución de scripts.</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Set-ExecutionPolicy</span><span class="w"> </span><span class="nx">RemoteSigned</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>Tener instalado el módulo de Azure AD.</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Install-Module</span><span class="w"> </span><span class="nx">MSOnline</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>Creamos un objeto de credenciales, para ello ejecutamos el siguiente comando e introducimos las credenciales de nuestro administrador global de Microsoft 365.</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$credential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Get-Credential</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>Importamos el módulo de Microsoft 365, para ello ejecutamos el siguiente comando.</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Import-Module</span><span class="w"> </span><span class="nx">MsOnline</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>Con el objeto de credenciales que creamos anteriormente con el módulo MSOnline, ahora nos podemos conectar a Microsoft 365 ejecutando el siguiente comando.</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Connect-MsolService</span><span class="w"> </span><span class="nt">-Credential</span><span class="w"> </span><span class="nv">$credential</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>Ejecutamos el siguiente comando para crear una sesión remota de Exchange Online.</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$exchangeSession</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">New-PSSession</span><span class="w"> </span><span class="nt">-ConfigurationName</span><span class="w"> </span><span class="nx">Microsoft.Exchange</span><span class="w"> </span><span class="nt">-ConnectionUri</span><span class="w"> </span><span class="s2">"https://outlook.office365.com/powershell-liveid/"</span><span class="w"> </span><span class="nt">-Credential</span><span class="w"> </span><span class="nv">$credential</span><span class="w"> </span><span class="nt">-Authentication</span><span class="w"> </span><span class="s2">"Basic"</span><span class="w"> </span><span class="err">–</span><span class="nx">AllowRedirection</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Import-PSSession</span><span class="w"> </span><span class="nv">$exchangeSession</span><span class="w">
+</span></code></pre></div></div>
+:ET
