@@ -15,6 +15,43 @@ El puerto que se usa para la autenticación SMTP es TCP 587.
 
 Se recomienda habilitar la autenticación SMTP solo para las cuentas o buzones que lo requieran dado que todos los clientes de correo eletrónico modernos que se conectan a Exchange Online o Microsoft 365, como por ejemplo, Outlook, Outlook en la web, Mail de iOS, Outlook para iOS y Android, etc. no usan la autenticación SMTP para enviar mensajes de correo electrónico.
 
+## Syntax Highlighter
+
+{% highlight css %}
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #1c2021;
+}
+
+li {
+  width: 200px;
+  min-height: 250px;
+  border: 1px solid #000;
+  display: inline-block;
+  vertical-align: top;
+  margin: 5px;
+}
+{% endhighlight %}
+
+{% highlight js %}
+  $('.top').click(function () {
+    $('html, body').stop().animate({ scrollTop: 0 }, 'slow', 'swing');
+  });
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > $(window).height()) {
+      $('.top').addClass("top-active");
+    } else {
+      $('.top').removeClass("top-active");
+    };
+  });
+{% endhighlight %}
+
+***
 
 > The longer I live, the more I realize that I am never wrong about anything, and that all the pains I have so humbly taken to verify my notions have only wasted my time!
 
