@@ -21,6 +21,10 @@ Se recomienda habilitar la autenticación SMTP solo para las cuentas o buzones q
 
 1. Tener habilitada la ejecución de scripts
 
+```powershell
+Set-ExecutionPolicy RemoteSigned
+```
+
 {% highlight powershell %}
 Set-ExecutionPolicy RemoteSigned
 {% endhighlight %}
