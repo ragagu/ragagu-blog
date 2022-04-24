@@ -15,7 +15,7 @@ color_scheme: auto # You can choose three modes auto, light, and dark. By defaul
 author:
   author__name: Rafael Galante Gutiérrez
   author__bio: Senior system consultant | Azure Administrator
-  author__avatar: '/images/rafa-avatar.jpg'
+  author__avatar: '/images/rafa-avatar.webp'
 
 social:
 #- {icon: "ion-logo-twitter", link: "https://twitter.com"}
