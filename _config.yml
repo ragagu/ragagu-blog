@@ -47,35 +47,9 @@ mailchimp__button__text: Enviar
 
 
 #-------------------------------
-# Gallery Footer Section
-gallery:
-  gallery__title: Gallery
-  gallery__columns: 3
-  gallery__images:
-    - alt: 'Rest'
-      url: '/images/100.jpg'
-    - alt: 'Lifestyle'
-      url: '/images/101.jpg'
-    - alt: 'Hobby'
-      url: '/images/102.jpg'
-    - alt: 'Notes'
-      url: '/images/103.jpg'
-    - alt: 'Rest'
-      url: '/images/104.jpg'
-    - alt: 'Hobby'
-      url: '/images/105.jpg'
-    - alt: 'Fashion'
-      url: '/images/106.jpg'
-    - alt: 'Notes'
-      url: '/images/107.jpg'
-    - alt: 'Rest'
-      url: '/images/108.jpg'
-
-
-#-------------------------------
 # Contact Settings
 contact:
-  email: your@email.com # Add your email for contant form
+  email: ragagu92@outlook.es # Add your email for contant form
   description: Menso comes with a built-in contact form, that you can use with Formspree service to handle up to 50 submissions per month for free. You could also easily switch to another contact form service if you want. # Add a description of your form
 
 # NOTE
