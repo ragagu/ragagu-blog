@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Ragagu</title>
-        <description>Menca personal blogging theme for Jekyll</description>
+        <description>Un espacio personal de tecnología para compartir</description>
         <link>http://localhost:4000/</link>
         <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 25 Apr 2022 01:53:24 +0200</pubDate>
-        <lastBuildDate>Mon, 25 Apr 2022 01:53:24 +0200</lastBuildDate>
+        <pubDate>Tue, 26 Apr 2022 00:09:22 +0200</pubDate>
+        <lastBuildDate>Tue, 26 Apr 2022 00:09:22 +0200</lastBuildDate>
         <generator>Jekyll v4.2.2</generator>
         
             <item>
