@@ -7,13 +7,19 @@ image:  '/images/terraform-assets.png'
 tags:   [Terraform, Azure]
 ---
 
-## Automatizar despliegue de la infraestructura en Azure con Terraform
+En el siguiente lab voy a instalar y configurar Terraform en una máquina Windows 11 con WSL, haciendo uso de la distribución Ubuntu 20.04 LTS, pero, el despliegue se puede llevar a cabo desde cualquier máquinas con Linux. Posteriormente voy a desplegar la siguiente infraestructura en Azure:
 
-El despliegue se lleva a cabo desde una máquina Windows 11 con el subsistema de Windows para Linux, haciendo uso de la distribución Ubuntu 20.04 LTS, pero, el despliegue se puede llevar a cabo desde cualquier máquina con Linux.
+- Un grupo de recursos.
+- Una máquina virtual con 2vCPU, 4GB de RAM y 30GB HDD con una imagen CentOS.
+- Dos máquinas virtuales con 1vCPU, 2GB de RAM y 30GB HDD con una imagen CentOS.
+- Tres IPs públicas dinámicas.
+- Una red virtual.
+- Un grupo de seguridad de red.
+
 
 ## Preparación del entorno para automatizar el despliegue
 
-Primeramente, tenemos que instalar Terraform en la máquina Linux donde se va automatizar el despliegue. De forma predeterminada, Terraform no está incluido en el repositorio estándar de Ubuntu. Debemos instalar los siguientes paquetes:
+En primer lugar, tenemos que instalar Terraform en la máquina Linux donde se va automatizar el despliegue. De forma predeterminada, Terraform no está incluido en el repositorio estándar de Ubuntu. Debemos instalar los siguientes paquetes:
 ```terminal
 sudo apt-get install curl gnupg2 software-properties-common -y
 ```
