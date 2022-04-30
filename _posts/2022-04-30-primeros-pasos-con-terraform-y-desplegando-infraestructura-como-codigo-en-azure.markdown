@@ -20,10 +20,9 @@ En el siguiente lab voy a instalar y configurar Terraform en una máquina Window
 ## Preparación del entorno para automatizar el despliegue
 
 En primer lugar, tenemos que instalar Terraform en la máquina Linux donde se va automatizar el despliegue. De forma predeterminada, Terraform no está incluido en el repositorio estándar de Ubuntu. Debemos instalar los siguientes paquetes:
-```terminal
+```
 sudo apt-get install curl gnupg2 software-properties-common -y
 ```
-
 Posteriormente agregamos la clave GPG Terraform y el respositorio:
 ```
 sudo curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
@@ -45,14 +44,12 @@ En segundo lugar, tenemos que crear un service principal para conectar el provid
 ```
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
-
 Para crear un service principal tenemos que conectarnos al tenant de Azure con `az login`.
 
 Con el siguiente comando creamos el service principal:
 ```
 az ad sp create-for-rbac --role="Contributor"
 ```
-
 Obtenemos una salida similar a la siguiente, donde obtendremos el appid, nombre, password y tenant id:
 ```
 rafa@PCP-RAGAGU:~$ az ad sp create-for-rbac --role="Contributor"
