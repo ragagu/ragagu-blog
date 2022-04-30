@@ -14,13 +14,11 @@ El despliegue se lleva a cabo desde una máquina Windows 11 con el subsistema de
 ## Preparación del entorno para automatizar el despliegue
 
 Primeramente, tenemos que instalar Terraform en la máquina Linux donde se va automatizar el despliegue. De forma predeterminada, Terraform no está incluido en el repositorio estándar de Ubuntu. Debemos instalar los siguientes paquetes:
-
 ```ubuntu
 sudo apt-get install curl gnupg2 software-properties-common -y
 ```
 
 Posteriormente agregamos la clave GPG Terraform y el respositorio:
-
 ```ubuntu
 sudo curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
 ```
@@ -29,7 +27,6 @@ sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.rel
 $(lsb_release -cs) main"
 ```
 Por último instalamos Terraform:
-
 ```ubuntu
 sudo apt-get install terraform -y
 ```
