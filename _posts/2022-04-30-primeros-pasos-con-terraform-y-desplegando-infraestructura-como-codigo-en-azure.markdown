@@ -52,7 +52,6 @@ az ad sp create-for-rbac --role="Contributor"
 ```
 Obtenemos una salida similar a la siguiente, donde obtendremos el appid, nombre, password y tenant id:
 ```
-rafa@PCP-RAGAGU:~$ az ad sp create-for-rbac --role="Contributor"
 In a future release, --scopes argument will become required for creating a role assignment. Please explicitly 
 specify --scopes.
 Creating 'Contributor' role assignment under scope '/subscriptions/c9f11e84-d381-46cd-82be4f39add24081'
@@ -60,18 +59,22 @@ The output includes credentials that you must protect. Be sure that you do not i
 your code or check the credentials into your source control. For more information, see 
 https://aka.ms/azadsp-cli
 {
- "appId": "62a71c17-03f2-4234-9795-530e34a05fed",
-Rafael Galante Gutiérrez
-Repo: https://github.com/ragagu/cp2devopsunir
+ "appId": "62p71c17-03q2-4234-9795-xxxxxxxxxxxx",
  "displayName": "azure-cli-2022-03-06-14-47-39",
- "password": "rvFpBmn_3KPOtZv.jzoK9Ox3H-QvOw~sfY",
- "tenant": "899789dc-202f-44b4-8472-a6d40f9eb440"
+ "password": "rvFpTmn_3KCOtZv.jzoK9Ox3H-xxxxxxxx",
+ "tenant": "899789xd-202f-44b4-9583-xxxxxxxxxxxx"
 }
 ```
 ## Creación de estructura de directorio y archivos Terraform
 
-Clonamos el siguiente repositorio en la máquina donde vamos automatizar el despliegue de la infraestructura con Terrafrom `git clone https://github.com/ragagu/cp2devopsunir`
+Clonamos el siguiente repositorio en la máquina donde vamos automatizar el despliegue de la infraestructura con Terrafrom `https://github.com/ragagu/laboratorios`
 
 > Para instalar Git ejecuta el comando `sudo apt install git`
 
 Accedemos al directorio cp2devopsunir/terraform y vemos la estructura de archivos siguientes:
+
+- main.tf
+- network.tf
+- security.tf
+- vars.tf
+- vm.tf
