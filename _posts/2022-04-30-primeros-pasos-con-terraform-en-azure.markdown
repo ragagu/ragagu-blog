@@ -22,11 +22,53 @@ Posteriormente agregamos la clave GPG Terraform y el respositorio:
 ```linux
 sudo curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
 ```
-```ubuntu
+```linux
 sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com 
 $(lsb_release -cs) main"
 ```
 Por último instalamos Terraform:
-```ubuntu
+```linux
 sudo apt-get install terraform -y
 ```
+Para verificar la instalación de Terraform ejecutamos:
+```linux
+terraform -v
+```
+
+En segundo lugar, tenemos que crear un service principal para conectar el provider azurerm de Terraform con nuestro tenant de Azure. Hacemos uso de Azure CLI. Instalamos Azure CLI mediante el siguiente comando:
+```linux
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+
+Para crear un service principal tenemos que conectarnos al tenant de Azure con `az login`.
+
+Con el siguiente comando creamos el service principal:
+```linux
+az ad sp create-for-rbac --role="Contributor"
+```
+
+Obtenemos una salida similar a la siguiente, donde obtendremos el appid, nombre, password y tenant id:
+```linux
+rafa@PCP-RAGAGU:~$ az ad sp create-for-rbac --role="Contributor"
+In a future release, --scopes argument will become required for creating a role assignment. Please explicitly 
+specify --scopes.
+Creating 'Contributor' role assignment under scope '/subscriptions/c9f11e84-d381-46cd-82be4f39add24081'
+The output includes credentials that you must protect. Be sure that you do not include these credentials in 
+your code or check the credentials into your source control. For more information, see 
+https://aka.ms/azadsp-cli
+{
+ "appId": "62a71c17-03f2-4234-9795-530e34a05fed",
+Rafael Galante Gutiérrez
+Repo: https://github.com/ragagu/cp2devopsunir
+ "displayName": "azure-cli-2022-03-06-14-47-39",
+ "password": "rvFpBmn_3KPOtZv.jzoK9Ox3H-QvOw~sfY",
+ "tenant": "899789dc-202f-44b4-8472-a6d40f9eb440"
+}
+```
+## Creación de estructura de directorio y archivos Terraform
+
+Clonamos el siguiente repositorio en la máquina donde vamos automatizar el despliegue de la infraestructura con Terrafrom `git clone https://github.com/ragagu/cp2devopsunir`
+
+> Para instalar Git ejecuta el comando `sudo apt install git`
+
+Accedemos al directorio cp2devopsunir/terraform y vemos la estructura de archivos siguientes:
