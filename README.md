@@ -1,67 +1,46 @@
-# Menca personal blogging theme for Jekyll
+# Ragagu-blog
 
-Menca is a super fast and clean blogging theme for Jekyll. One of the main features of this theme is video post support. You can easily add your favorite video from services like Youtube or Vimeo. This theme is fully compatible with Github Pages and has a light and dark mode for easy reading. If you want to start a creative personal blog and you create video content this theme is perfect for you.
+Ragagu-blog es un proyecto web basado en Jekyll para la publicación y compartición de artículos técnicos relacionados con tecnologías Microsoft.
 
-* * *
+Jekyll es un generador de sitios web estáticos con grandes capacidades de blog. Está escrito en lenguaje de programación Ruby, fue desarrollado por Tom Preston-Werner, cofundador de GitHub y se distribuye bajo licencia de código abierto MIT.
 
-### Demo
+La web está basada en la siguiente plantilla de Jekyll [Menca (Artem Sheludko)](https://jekyllthemes.io/theme/menca-blog-jekyll-theme).
 
-Check the theme in action [Live Demo](https://menca.netlify.app/) |
-[Artem Sheludko](https://jekyllthemes.io/developers/artem-sheludko)
 
 * * *
 
-### Theme features
+### Características y funcionalidades
 
-- Works with GitHub Pages (host it for free)
-- Dark and light mode user can select themself
-- No jQuery, only vanilla JS
-- 100% responsive Design
-- Clean and Modern Code
-- Optimized for mobile devices
-- Super fast performance ⚡⚡⚡
-- Social sharing buttons
-- Scroll to top button
-- Syntax highlighting (supports the Jekyll syntax highlighter)
-- Compatible with modern browsers
-- Medium style image zoom
-- Image Lazy loading
-- Image gallery
-- Tags Page
-- Custom logo support
-- Supports video posts
-- Supports contact form (Formspree)
-- Supports MailChimp newsletter
-- Supports Disqus comments
-- Supports Google Analytics
-- Ionicons icons
-- Free Google Fonts
-- Free Updates & Support
+- Funciona con GitHub Pages.
+- Posibilidad de seleccionar modo oscuro y claro.
+- Diseño 100% responsive. Optimizado para dispositivos móviles.
+- Código limpio y sencillo.
+- Rendimiento super rápido.
+- Botones para compartir en redes sociales.
+- Admite comentarios de Disqus.
+- Compatible con Google Analytics.
+- Muy seguro.
+- Sencillo de desplegar.
+- No requiere base de datos.
+- Markdown de serie.
+
 
 * * *
 
-### Installation
+### Instalación
 
-#### Installing Ruby & Jekyll
+#### Instalación Jekyll y Ruby
 
-If this is your first time using Jekyll, please follow the [Jekyll docs](https://jekyllrb.com/docs/installation/) and make sure your local environment (including Ruby) is setup correctly.
+Si es la primera vez que usa Jekyll, siga el siguiente documento [Jekyll docs](https://jekyllrb.com/docs/installation/) y asegúrese de que su entorno local (incluido) Ruby esté configurado correctamente.
 
-* * *
-
-### Deployment
-
-To run the theme locally, navigate to the theme directory and run `bundle install` to install the dependencies, then run `jekyll serve` or `bundle exec jekyll serve` to start the Jekyll server.
-
-I would recommend checking the [Deployment Methods](https://jekyllrb.com/docs/deployment-methods/) page on Jekyll website.
 
 * * *
 
-### Documentation
+### Despliegue
 
-Before using the Menca theme, please read the attached documentation.
+Para ejecutar el tema localmente, vaya al directorio del tema y ejecute `bundle install` para instalar las dependencias, luego ejecute `jekyll serve` o `bundle exec jekyll serve` para iniciar el servidor.
+
+Recomendaría consultar la página [Métodos de implementación](https://jekyllrb.com/docs/deployment-methods/) en el sitio web de Jekyll.
+
 
 * * *
-
-### Support
-
-<p>If you have any questions, please feel free to contact me by mail <a href="mailto:hi.artemsheludko@gmail.com">Contact</a><p>
