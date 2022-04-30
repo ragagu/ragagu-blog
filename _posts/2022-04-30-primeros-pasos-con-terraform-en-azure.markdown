@@ -1,81 +1,35 @@
 ---
 layout: post
 title:  Primeros pasos con Terraform en Azure
-description: Se recomienda habilitar la autenticación SMTP solo para las cuentas o buzones que lo requieran...
+description: Vamos a instalar Terraform y a desplegar infraestructura en Azure
 date:   2022-04-30 13:40:23 +0300
 image:  '/images/terraform-assets.png'
 tags:   [Terraform, Azure]
 ---
-El protocolo SMTP se usa en los siguientes escenarios en Microsoft 365:
 
-* Clientes POP3 e IMAP4
-* Aplicaciones, servidores de informes y dispositivos multifunción que generan y envían mensajes de correo electrónico.
+## Automatizar despliegue de la infraestructura en Azure con Terraform
 
-El puerto que se usa para la autenticación SMTP es TCP 587.
+El despliegue se lleva a cabo desde una máquina Windows 11 con el subsistema de Windows para Linux, haciendo uso de la distribución Ubuntu 20.04 LTS, pero, el despliegue se puede llevar a cabo desde cualquier máquina con Linux.
 
-Se recomienda habilitar la autenticación SMTP solo para las cuentas o buzones que lo requieran dado que todos los clientes de correo eletrónico modernos que se conectan a Exchange Online o Microsoft 365, como por ejemplo, Outlook, Outlook en la web, Mail de iOS, Outlook para iOS y Android, etc. no usan la autenticación SMTP para enviar mensajes de correo electrónico.
+## Preparación del entorno para automatizar el despliegue
 
-> Si ha habilitado los valores predeterminados de seguridad en su empresa, AUTH SMTP ya está deshabilitado en Exchange Online.
+Primeramente, tenemos que instalar Terraform en la máquina Linux donde se va automatizar el despliegue. De forma predeterminada, Terraform no está incluido en el repositorio estándar de Ubuntu. Debemos instalar los siguientes paquetes:
 
-## Requisitos para activar o desactivar SMTP y conexión a Exchange Online mediante PowerShell
-
-1. Tener habilitada la ejecución de scripts.
-```powershell
-Set-ExecutionPolicy RemoteSigned
-```
-2. Tener instalado el módulo de Azure AD.
-```powershell
-Install-Module MSOnline
-```
-3. Creamos un objeto de credenciales, para ello ejecutamos el siguiente comando e introducimos las credenciales de nuestro administrador global de Microsoft 365.
-```powershell
-$credential = Get-Credential
-```
-4. Importamos el módulo de Microsoft 365, para ello ejecutamos el siguiente comando.
-```powershell
-Import-Module MsOnline
-```
-5. Con el objeto de credenciales que creamos anteriormente con el módulo MSOnline, ahora nos podemos conectar a Microsoft 365 ejecutando el siguiente comando.
-```powershell
-Connect-MsolService -Credential $credential
-```
-6. Ejecutamos el siguiente comando para crear una sesión remota de Exchange Online.
-```powershell
-$exchangeSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "https://outlook.office365.com/powershell-liveid/" -Credential $credential -Authentication "Basic" –AllowRedirection
-```
-```powershell
-Import-PSSession $exchangeSession
+```ubuntu
+sudo apt-get install curl gnupg2 software-properties-common -y
 ```
 
-## Deshabilitar autenticación SMTP
+Posteriormente agregamos la clave GPG Terraform y el respositorio:
 
-Conectados a Exchange Online remotamente por PowerShell para deshabilitar SMTP globalmente en la compañía, ejecutamos el siguiente comando.
-
-```powershell
-Set-TransportConfig -SmtpClientAuthenticationDisabled $true
+```ubuntu
+sudo curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
 ```
-
-Para comprobar que se ha deshabilitado la autenticación SMTP ejecutamos el siguiente comando y comprobamos que el valor de la propiedad SmtpClientAuthenticationDisablede es True.
-
-```powershell
-Get-TransportConfig | Format-List SmtpClientAuthenticationDisabled
+```ubuntu
+sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com 
+$(lsb_release -cs) main"
 ```
+Por último instalamos Terraform:
 
-## Habilitar autenticación SMTP
-
-Conectados a Exchange Online remotamente por PowerShell comprobamos el usuario, donde usuario@contoso.com introducimos la cuenta de usuario a revisar.
-
-```powershell
-Get-CASMailbox -Identity Usuario@contoso.com | Format-List SmtpClientAuthenticationDisabled
+```ubuntu
+sudo apt-get install terraform -y
 ```
-
-Si nos carga el usuario con el valor en blanco o $True ejecutaríamos el siguiente comando para habilitar la autenticación SMTP.
-
-
-```powershell
-Set-CASMailbox -Identity sean@contoso.com -SmtpClientAuthenticationDisabled $false 
-```
-
-
-Documentación de apoyo:
-https://docs.microsoft.com/es-es/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission
