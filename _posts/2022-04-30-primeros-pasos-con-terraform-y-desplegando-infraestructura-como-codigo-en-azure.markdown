@@ -25,36 +25,36 @@ sudo apt-get install curl gnupg2 software-properties-common -y
 ```
 
 Posteriormente agregamos la clave GPG Terraform y el respositorio:
-```terminal
+```
 sudo curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
 ```
-```terminal
+```
 sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com 
 $(lsb_release -cs) main"
 ```
 Por último instalamos Terraform:
-```terminal
+```
 sudo apt-get install terraform -y
 ```
 Para verificar la instalación de Terraform ejecutamos:
-```terminal
+```
 terraform -v
 ```
 
 En segundo lugar, tenemos que crear un service principal para conectar el provider azurerm de Terraform con nuestro tenant de Azure. Hacemos uso de Azure CLI. Instalamos Azure CLI mediante el siguiente comando:
-```terminal
+```
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
 Para crear un service principal tenemos que conectarnos al tenant de Azure con `az login`.
 
 Con el siguiente comando creamos el service principal:
-```terminal
+```
 az ad sp create-for-rbac --role="Contributor"
 ```
 
 Obtenemos una salida similar a la siguiente, donde obtendremos el appid, nombre, password y tenant id:
-```terminal
+```
 rafa@PCP-RAGAGU:~$ az ad sp create-for-rbac --role="Contributor"
 In a future release, --scopes argument will become required for creating a role assignment. Please explicitly 
 specify --scopes.
