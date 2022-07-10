@@ -2,7 +2,7 @@
 layout: post
 title:  Activar/desactivar la autenticación SMTP en cuentas de Exchange Online
 description: Se recomienda habilitar la autenticación SMTP solo para las cuentas o buzones que lo requieran...
-date:   2022-03-19 15:01:35 +0300
+date:   2022-07-01 15:01:35 +0300
 image:  '/images/activar-desactivar-smtp.webp'
 tags:   [Microsoft 365, Exchange Online]
 ---

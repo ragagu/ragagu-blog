@@ -2,7 +2,7 @@
 layout: post
 title:  Primeros pasos con Terraform y desplegando infraestructura como código en Azure
 description: Vamos a instalar Terraform y a desplegar infraestructura en Azure
-date:   2022-04-30 13:40:23 +0300
+date:   2022-07-10 17:12:33 +0300
 image:  '/images/terraform-assets.png'
 tags:   [Terraform, Azure]
 ---
