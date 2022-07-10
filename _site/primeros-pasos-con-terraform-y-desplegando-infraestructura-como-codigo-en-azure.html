@@ -2,20 +2,23 @@
 <html lang="es">
    <!-- SEO tags -->
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Tags | Ragagu</title>
+<title>Primeros pasos con Terraform y desplegando infraestructura como código en Azure | Ragagu</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Tags" />
+<meta property="og:title" content="Primeros pasos con Terraform y desplegando infraestructura como código en Azure" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Un espacio personal de tecnología para compartir" />
-<meta property="og:description" content="Un espacio personal de tecnología para compartir" />
-<link rel="canonical" href="http://localhost:4000/tags/" />
-<meta property="og:url" content="http://localhost:4000/tags/" />
+<meta name="description" content="Vamos a instalar Terraform y a desplegar infraestructura en Azure" />
+<meta property="og:description" content="Vamos a instalar Terraform y a desplegar infraestructura en Azure" />
+<link rel="canonical" href="http://localhost:4000/primeros-pasos-con-terraform-y-desplegando-infraestructura-como-codigo-en-azure" />
+<meta property="og:url" content="http://localhost:4000/primeros-pasos-con-terraform-y-desplegando-infraestructura-como-codigo-en-azure" />
 <meta property="og:site_name" content="Ragagu" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Tags" />
+<meta property="og:image" content="http://localhost:4000/images/terraform-assets.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-30T12:40:23+02:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/images/terraform-assets.png" />
+<meta property="twitter:title" content="Primeros pasos con Terraform y desplegando infraestructura como código en Azure" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Un espacio personal de tecnología para compartir","headline":"Tags","url":"http://localhost:4000/tags/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-30T12:40:23+02:00","datePublished":"2022-04-30T12:40:23+02:00","description":"Vamos a instalar Terraform y a desplegar infraestructura en Azure","headline":"Primeros pasos con Terraform y desplegando infraestructura como código en Azure","image":"http://localhost:4000/images/terraform-assets.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/primeros-pasos-con-terraform-y-desplegando-infraestructura-como-codigo-en-azure"},"url":"http://localhost:4000/primeros-pasos-con-terraform-y-desplegando-infraestructura-como-codigo-en-azure"}</script>
 <!-- End Jekyll SEO tag -->
  
 
@@ -24,22 +27,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Tags</title>
-  <meta name='description' content='Un espacio personal de tecnología para compartir'>
+  <title>Primeros pasos con Terraform y desplegando infraestructura como código en Azure</title>
+  <meta name='description' content='Vamos a instalar Terraform y a desplegar infraestructura en Azure'>
 
-  <link rel="canonical" href="http://localhost:4000/tags/">
+  <link rel="canonical" href="http://localhost:4000/primeros-pasos-con-terraform-y-desplegando-infraestructura-como-codigo-en-azure">
   <link rel="alternate" type="application/rss+xml" title="Ragagu" href="/feed.xml">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tags – Ragagu">
-  <meta name="twitter:description" content="">
-  <meta name="twitter:image:src" content="">
+  <meta name="twitter:title" content="Primeros pasos con Terraform y desplegando infraestructura como código en Azure – Ragagu">
+  <meta name="twitter:description" content="Vamos a instalar Terraform y a desplegar infraestructura en Azure">
+  <meta name="twitter:image:src" content="http://localhost:4000/images/terraform-assets.png">
 
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="Tags – Ragagu">
-  <meta property="og:description" content="">
-  <meta property="og:image" content="">
+  <meta property="og:title" content="Primeros pasos con Terraform y desplegando infraestructura como código en Azure – Ragagu">
+  <meta property="og:description" content="Vamos a instalar Terraform y a desplegar infraestructura en Azure">
+  <meta property="og:image" content="http://localhost:4000/images/terraform-assets.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -197,326 +200,697 @@
 
   <!-- begin content -->
   <main class="content" aria-label="Content">
-    
+    <div class="post-head">
+  <div class="container">
+    <div class="row">
+      
+      
 
-
-<!-- begin tags -->
-<section class="tags">
-
-  <div class="tag__head">
-
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
-
-          <h1 class="tag__title">Tags</h1>
-        
-          <ul class="tag__list list-reset">
-            
-              
-                
-                <li class="tag__item"><a href="#Azure" class="tag__link">Azure</a></li>
-              
-            
-              
-                
-                <li class="tag__item"><a href="#Exchange+Online" class="tag__link">Exchange Online</a></li>
-              
-            
-              
-                
-                <li class="tag__item"><a href="#Microsoft+365" class="tag__link">Microsoft 365</a></li>
-              
-            
-              
-                
-                <li class="tag__item"><a href="#Terraform" class="tag__link">Terraform</a></li>
-              
-            
-              
-            
-          </ul>
-
+      
+      <div class="col col-6 col-d-12">
+        <div class="post-image">
+          <img class="lazy" data-src="/images/terraform-assets.png" alt="Primeros pasos con Terraform y desplegando infraestructura como código en Azure">
         </div>
       </div>
-    </div>
+      
 
-  </div>
-
-
+      
+      
+      
+      <div class="col col-6 col-d-12">
+        <div class="post__info ">
   
+          
+            <div class="post__tags">
+              
+                <a href="/tags#Terraform" class="post__tag">Terraform</a>
+              
+                <a href="/tags#Azure" class="post__tag">Azure</a>
+              
+            </div>
+          
   
+          <h1 class="post__title">Primeros pasos con Terraform y desplegando infraestructura como código en Azure</h1>
+  
+          <div class="post__meta">
+            <a href="/about/" class="post__author-image">
+              <img class="lazy" data-src="/images/rafa-avatar.webp" alt="Rafael Galante Gutiérrez">
+            </a>
 
-    <div class="tags__inner">
-    
-      <div class="container">
-        <div class="row">
-          <div class="col col-12">
-            <div class="tag__info">
-              <div class="tag__info-box">
-                <div class="tag__counter">
-                  <span>1</span>
-                  <small>Posts</small>
-                </div>
-                <h2 class="tag__name" id="Azure">Azure</h2>
-              </div>
-              <a class="top__link" href="#top">Return to top</a>
+            <div class="post__meta-bottom">
+              <a class="post__author" href="/about/">Rafael Galante Gutiérrez</a>
+              <time class="post__date" datetime="2022-04-30T12:40:23+02:00">30 Apr 2022</time>
             </div>
           </div>
+  
         </div>
       </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col col-12">
-            <div class="row">
-            
-              
-                <div class="article col col-4 col-d-6 col-t-12">
-  <div class="article__inner">
-
-    <div class="article__head">
-      <time class="article__date" datetime="2022-04-30T12:40:23+02:00">30 Apr 2022</time>
-
-      
-
-      
-      <a class="article__image" href="/primeros-pasos-con-terraform-y-desplegando-infraestructura-como-codigo-en-azure">
-        <img class="lazy" data-src="/images/terraform-assets.png" alt="Primeros pasos con Terraform y desplegando infraestructura como código en Azure">
-      </a>
-      
-
-    </div>
-
-    <div class="article__content">
-
-      <h2 class="article__title">
-        <a href="/primeros-pasos-con-terraform-y-desplegando-infraestructura-como-codigo-en-azure">Primeros pasos con Terraform y desplegando infraestructura como código en Azure</a>
-      </h2>
-
-      
-      <p class="article__excerpt">Vamos a instalar Terraform y a desplegar infraestructura en Azure</p>
-      
-
     </div>
   </div>
 </div>
-              
-            
-            </div>
-          </div>
-        </div>
-      </div>
+
+<!-- begin post -->
+<div class="container animate">
+
+  <article class="post">
+
+    <div class="post__content">
+      <p>En el siguiente lab voy a instalar y configurar <strong>Terraform</strong> en una máquina Windows 11 con <strong>WSL</strong>, haciendo uso de la distribución <strong>Ubuntu 22.04 LTS</strong>, pero, el despliegue se puede llevar a cabo desde cualquier máquina con Linux. Posteriormente voy a desplegar la siguiente infraestructura en <strong>Azure</strong>:</p>
+
+<ul>
+  <li>Un grupo de recursos.</li>
+  <li>Una máquina virtual con 2vCPU, 4GB de RAM y 30GB HDD con una imagen CentOS (master).</li>
+  <li>Dos máquinas virtuales con 1vCPU, 2GB de RAM y 30GB HDD con una imagen CentOS (workers).</li>
+  <li>Tres IPs públicas dinámicas.</li>
+  <li>Una red virtual.</li>
+  <li>Un grupo de seguridad de red (NSG).</li>
+</ul>
+
+<h1 id="preparación-del-entorno-para-automatizar-el-despliegue">Preparación del entorno para automatizar el despliegue</h1>
+
+<p><strong>En primer lugar</strong>, tenemos que instalar Terraform en la máquina Linux donde se va automatizar el despliegue. De forma predeterminada, Terraform no está incluido en el repositorio estándar de Ubuntu. Debemos instalar los siguientes paquetes:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install curl gnupg2 software-properties-common -y
+</code></pre></div></div>
+<p>Posteriormente agregamos la clave GPG Terraform y el respositorio:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com 
+$(lsb_release -cs) main"
+</code></pre></div></div>
+<p>Por último instalamos Terraform:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install terraform -y
+</code></pre></div></div>
+<p>Para verificar la instalación de Terraform ejecutamos:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform -v
+</code></pre></div></div>
+<p><img src="/images/terraform-v.png" alt="Ejecución de 'terraform -v'" /></p>
+
+<p><strong>En segundo lugar</strong>, tenemos que crear un service principal para conectar el provider azurerm de Terraform con nuestro tenant de Azure. Hacemos uso de <strong>Azure CLI</strong>. Instalamos Azure CLI mediante el siguiente comando:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+</code></pre></div></div>
+<p>Para crear un service principal tenemos que conectarnos al tenant de Azure con:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> az login
+</code></pre></div></div>
+
+<p>Con el siguiente comando creamos el service principal:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/529ff35f-375b-xxxx-xxxx-xxxxxxxxxxxx"
+</code></pre></div></div>
+<p><img src="/images/creacion-service-principal.png" alt="Creación de un service principal" /></p>
+
+<h2 id="creación-de-estructura-de-directorio-y-archivos-terraform">Creación de estructura de directorio y archivos Terraform</h2>
+
+<p>Clonamos el siguiente repositorio en la máquina donde vamos automatizar el despliegue de la infraestructura con Terrafrom <code class="language-plaintext highlighter-rouge">https://github.com/ragagu/laboratorios</code></p>
+
+<blockquote>
+  <p>Para instalar Git ejecuta el comando <code class="language-plaintext highlighter-rouge">sudo apt install git</code></p>
+</blockquote>
+
+<p>Accedemos al directorio laboratorios/terraform/0001 y vemos la estructura de archivos siguientes:</p>
+
+<ul>
+  <li>main.tf</li>
+  <li>network.tf</li>
+  <li>security.tf</li>
+  <li>vars.tf</li>
+  <li>vm.tf</li>
+</ul>
+
+<h3 id="configuración-de-archivo-varstf">Configuración de archivo vars.tf</h3>
+
+<ul>
+  <li>En este fichero declaramos todas las variables.</li>
+  <li>Declaramos la localización para ubicar en la región donde se van a desplegar los recursos. Para ver las regiones disponibles: az account list-locations</li>
+  <li>Declaramos la variable para el nombre de la talla de la máquina virtual máster. Para ver las tallas disponibles en la región seleccionada: az vm list-sizes –location westeurope</li>
+  <li>Declaramos la variable para el nombre de la talla de las máquinas workers. Como las dos VM workers van a ser iguales, solamente va a cambiar el nombre, aplicamos el tipo lists(string) y los nombres de ambas VM en default. En los archivos main.tf, network.tf, security.tf y vm.tf haremos uso de count para configurar estas dos VMs.</li>
+</ul>
+
+<p>Si estás haciendo uso de una suscripción de educación, están limitadas a un máximo de 4 Cores, este límite se puede ampliar, pero no es posible hacerlo con este tipo de suscripción, la solución es pasar a una suscripción de pago por uso.</p>
+
+<p>Contenido archivo vars.tf:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Variable aplicable a todos los recursos
+
+variable "location" {
+  type = string
+  description = "Región donde se crearán los recursos de Azure"
+  default = "West Europe"
+}
+
+# Variable aplicable solo a la VM master
+
+variable "vm_size_master" {
+  type = string
+  description = "Talla para la VM master"
+  default = "Standard_B2s" # 2vCPU, 4GB RAM
+}
+
+# Variables aplicables a las VMs worker01 y worker02
+
+variable "vm_size_workers" {
+  type = string
+  description = "Talla de la VM"
+  default = "Standard_B1ms" # 1vCPU, 2GB RAM
+}
+
+variable "workers" {
+  type = list(string)
+  description = "Despliegue de VMs worker01 y worker 02"
+  default = ["worker01", "worker02"]
+}
+</code></pre></div></div>
+
+<h3 id="configuración-de-archivo-maintf">Configuración de archivo main.tf</h3>
+
+<ul>
+  <li>Configuramos el provider del que hará uso Terraform, en este caso azurerm.</li>
+  <li>Incluimos la información del service principal creado.</li>
+  <li>Creamos y configuramos un grupo de recursos.</li>
+  <li>Creamos y configuramos una cuenta de almacenamiento.</li>
+</ul>
+
+<p>Como podemos ver para la configuración location se hace llamamiento a la variable var.location, de esta forma se configuraría West Europe, tal y como está definido en vars.tf. También observamos que en todos los recursos hay que indicar el nombre del grupo de recursos donde se va a desplegar, como el nombre ya está definido en la creación del grupo de recursos, el llamamiento al nombre de este en la creación de otros recursos se establece de la siguiente forma azurerm_resource_group.rg.name.</p>
+
+<p>Contenido archivo main.tf:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Definición provider azurerm (Azure) y versión
+
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "3.13.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+  subscription_id = "c9f11e84-e410-46cd-82xe-xxxxxxxxxxxx"
+  client_id = "62p71c17-03q2-4234-9795-xxxxxxxxxxxx"
+  client_secret = "rvFpTmn_3KCOtZv.jzoK9Ox3H-xxxxxxxx"
+  tenant_id = "899789xd-202f-44b4-9583-xxxxxxxxxxxx"
+}
+
+# Creación de grupo de recursos
+
+resource "azurerm_resource_group" "rg" {
+    name = "lab_0001"
+    location = var.location
+
+    tags = {
+        environment = "lab_0001"
+    }
+}
+
+# Creación de cuenta de almacenamiento
+
+resource "azurerm_storage_account" "stAccount" {
+    name = "salab0001"
+    resource_group_name = azurerm_resource_group.rg.name
+    location = azurerm_resource_group.rg.location
+    account_tier = "Standard"
+    account_replication_type = "LRS"
+
+    tags = {
+        environment = "lab_0001"
+    }
+
+}
+</code></pre></div></div>
+
+<h3 id="configuración-del-archivo-networktf">Configuración del archivo network.tf</h3>
+
+<ul>
+  <li>Definimos una vnet: 10.0.0.0/16</li>
+  <li>Definimos una subnet: 10.0.1.0/24</li>
+  <li>La subnet debe estar contenida dentro de la vnet.</li>
+  <li>La NIC de todas las VMs deben estar contenidas dentro del mismo espacio de direcciones de la subnet.</li>
+  <li>Asignamos un IP privada estática a las VMs.</li>
+  <li>Creamos una IP pública dinámica para poder acceder desde fuera de Azure.</li>
+</ul>
+
+<p>La asignación de una IP pública estática incrementa el coste de este recurso, sin embargo, la asignación de una IP privada estática es gratuita. Al configurar la IP pública dinámica, con el encendido y apagado de las VMs la dirección puede cambiar. En la creación de los workers en el nombre del recurso se establece -${var.workers[count.index]} para que automáticamente coja del fichero vars.tf de la variable workers los nombres definidos en default. Para que eso funcione se declara también en el recurso a crear count = length(var.workers). Como a la VM master le hemos dado la IP 10.0.1.10, para que los workers se asignen automáticamente la primera IP privada libre a partir de las 10.0.1.11 para que no se duplique la IP del master, aplicamos la siguiente configuración private_ip_address = “10.0.1.${count.index + 11}”.</p>
+
+<p>Contenido de archivo network.tf:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Creación de red virtual
+
+resource "azurerm_virtual_network" "myNet" {
+    name = "lab-0001-vnet"
+    address_space = ["10.0.0.0/16"]
+    location = azurerm_resource_group.rg.location
+    resource_group_name = azurerm_resource_group.rg.name
+
+    tags = {
+        environment = "lab-0001"
+    }
+}
+
+# Creación de subnet
+
+resource "azurerm_subnet" "mySubnet" {
+    name = "subnet-lab-0001"
+    resource_group_name = azurerm_resource_group.rg.name
+    virtual_network_name = azurerm_virtual_network.myNet.name
+    address_prefixes = ["10.0.1.0/24"]
+}
+
+# Creación de interfaz de red para VM master
+
+resource "azurerm_network_interface" "nicmaster" {
+    name = "nic-master"
+    location = azurerm_resource_group.rg.location
+    resource_group_name = azurerm_resource_group.rg.name
+
+      ip_configuration {
+      name = "ipconf-master"
+      subnet_id = azurerm_subnet.mySubnet.id
+      private_ip_address_allocation = "Static"
+      private_ip_address = "10.0.1.10"
+      public_ip_address_id = azurerm_public_ip.myPublicIpMaster.id
+}
+
+      tags = {
+          environment = "lab-0001"
+      }
+}
+
+# Creación de interfaces de red para VMs worker01 y worker02
+
+resource "azurerm_network_interface" "nicworkers" {
+    name = "nic-${var.workers[count.index]}"
+    count = length(var.workers)
+    location = azurerm_resource_group.rg.location
+    resource_group_name = azurerm_resource_group.rg.name
+
+      ip_configuration {
+      name = "ipconf-${var.workers[count.index]}"
+      subnet_id = azurerm_subnet.mySubnet.id
+      private_ip_address_allocation = "Static"
+      private_ip_address = "10.0.1.${count.index + 11}"
+      public_ip_address_id = azurerm_public_ip.myPublicIpWorkers[count.index].id
+}
+
+      tags = {
+          environment = "lab-0001"
+      }
+}
+
+# IP pública VM master
+
+resource "azurerm_public_ip" "myPublicIpMaster" {
+    name = "publicip-master"
+    location = azurerm_resource_group.rg.location
+    resource_group_name = azurerm_resource_group.rg.name
+    allocation_method = "Dynamic"
+    sku = "Basic"
+
+      tags = {
+          environment = "lab-lab0001"
+      }
+}
+
+# IP pública VMs worker01 y worker02
+
+resource "azurerm_public_ip" "myPublicIpWorkers" {
+    name = "publicip-${var.workers[count.index]}"
+    count = length(var.workers)
+    location = azurerm_resource_group.rg.location
+    resource_group_name = azurerm_resource_group.rg.name
+    allocation_method = "Dynamic"
+    sku = "Basic"
+
+      tags = {
+          environment = "lab-0001"
+      }
+}
+</code></pre></div></div>
+
+<h3 id="configuración-del-archivo-securitytf">Configuración del archivo security.tf</h3>
+
+<ul>
+  <li>Creamos un grupo de seguridad de red (NSG).</li>
+  <li>En el NSG definimos el tráfico que vamos a autorizar incluyendo reglas de seguridad. De momento solo se va a permitir la regla de entrada por SSH.</li>
+  <li>Asociamos el NSG con todas las NIC de las VMs que se van a desplegar. De esta forma la regla que creamos se aplica a todas las VMs.</li>
+</ul>
+
+<p>Contenido del archivo security.tf:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Grupo de seguridad de red
+
+resource "azurerm_network_security_group" "mySecGroup" {
+    name = "nsg-k8s"
+    location = azurerm_resource_group.rg.location
+    resource_group_name = azurerm_resource_group.rg.name
+
+    security_rule {
+        name = "SSH"
+        priority = "1001"
+        direction ="Inbound"
+        access = "Allow"
+        protocol = "Tcp"
+        source_port_range = "*"
+        destination_port_range = "22"
+        source_address_prefix = "*"
+        destination_address_prefix = "*"
+    }
+
+    tags = {
+        environment = "lab-0001"
+    }
+}
+
+# Vincular grupo de seguridad de red con interfaz de red de vm master
+
+resource "azurerm_network_interface_security_group_association" "associationmaster" {
+    network_interface_id = azurerm_network_interface.nicmaster.id
+    network_security_group_id = azurerm_network_security_group.mySecGroup.id
+}
+
+
+# Vincular grupo de seguridad de red con interfaz de red de worker01 y worker02
+
+resource "azurerm_network_interface_security_group_association" "associationworers" {
+    count = length(var.workers)
+    network_interface_id = azurerm_network_interface.nicworkers[count.index].id
+    network_security_group_id = azurerm_network_security_group.mySecGroup.id
+}
+</code></pre></div></div>
+
+<h3 id="configuración-del-archivo-vmtf">Configuración del archivo vm.tf</h3>
+
+<ul>
+  <li>Definimos la creación de la VM master.</li>
+  <li>Definimos la creación de las VMs workers.</li>
+  <li>Definimos el tamaño.</li>
+  <li>Le asignamos las NICs creadas en network.tf.</li>
+  <li>Indicamos el usuario administrador.</li>
+  <li>Especificamos la clave pública para el usuario administrador. Para crear una clave SSH, para poder conectarnos a la VM hacemos uso del siguiente comando ssh-keygen -t rsa -b 4096. Por defecto la clave se almacena en ~/.ssh, el nombre que le hemos asignado es id_rsa_cp2_devops porque ya disponía de una clave con el nombre por defecto (id_rsa). No hemos asignado una contraseña a la clave para esta práctica. Una vez dispongamos de la clave SSH hay que restablecer la ruta de la misma en el fichero vm.tf.</li>
+  <li>Utilizaremos el usuario especificado y la clave privada asociada a la pública para acceder a la VM.</li>
+  <li>Definimos el tipo de disco y la replicación (Standar_LRS).</li>
+  <li>Cuando definamos images del Marketplace tendremos que definir plan y source_image_reference con los datos de la imagen que utilizaremos.</li>
+  <li>Definimos la storage account a utilizar para almacenar información de troubleshooting.</li>
+</ul>
+
+<p>Para definir la imagen a desplegar del Marketplace, para ver todas las disponibles con CentOS ejecutamos el siguiente comando:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az vm image list --offer CentOS --all --output table
+</code></pre></div></div>
+<p>Desde la salida que obtenemos en formato tabla podemos elegir la imagen y tendremos otros datos necesarios para incluir en vm.tf como son offer, publisher, version, name, plan, sku y product. Una vez seleccionada una imagen, tendremos que aceptar los términos de uso de esta, si no, porque desde Terraform no es posible aceptar esos términos y condiciones. Para esta práctica se ha elefido la siguiente imagen:</p>
+
+<p>name = “centos-8-3-free”
+product = “centos-8-3-free”
+publisher = “cognosys”
+offer = “centos-8-3-free”
+sku = “centos-8-3-free”
+version = “1.2019.0810”</p>
+
+<p>Por lo tanto, el comando a ejecutar para aceptar los términos y condiciones es:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az vm image terms accept --offer centos-8-3-free --plan 1.2019.0810 --publisher cognosys
+</code></pre></div></div>
+<p>Contenido del archivo vm.tf:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Creación de máquina master
+
+resource "azurerm_linux_virtual_machine" "vmmaster" {
+    name = "master"
+    resource_group_name = azurerm_resource_group.rg.name
+    location = azurerm_resource_group.rg.location
+    size = var.vm_size_master
+    admin_username = "rafadmin"
+    network_interface_ids = [ azurerm_network_interface.nicmaster.id ]
+    disable_password_authentication = true
+    admin_ssh_key {
+        username = "rafadmin"
+        public_key = file ("~/.ssh/id_rsa_cp2_devops.pub")
+    }
+
+
+    os_disk {
+        caching = "ReadWrite"
+        storage_account_type = "Standard_LRS"
+    }
+
+    plan {
+        name = "centos-8-3-free"
+        product = "centos-8-3-free"
+        publisher = "cognosys"
+    }
+  
+      source_image_reference {
+        publisher = "cognosys"
+        offer = "centos-8-3-free"
+        sku = "centos-8-3-free"
+        version = "1.2019.0810"
+    }
+
+    boot_diagnostics {
+        storage_account_uri = azurerm_storage_account.stAccount.primary_blob_endpoint
+    }
+
+    tags = {
+        environment = "lab-0001"
+    }
+
+}
+
+
+# Creación de máquinas virtuales worker01 y worker02
+
+resource "azurerm_linux_virtual_machine" "vmsworkers" {
+    name = "${var.workers[count.index]}"
+    count = length(var.workers)
+    resource_group_name = azurerm_resource_group.rg.name
+    location = azurerm_resource_group.rg.location
+    size = var.vm_size_workers
+    admin_username = "rafadmin"
+    network_interface_ids = [ azurerm_network_interface.nicworkers[count.index].id ]
+    disable_password_authentication = true
+
+    admin_ssh_key {
+        username = "rafadmin"
+        public_key = file ("~/.ssh/id_rsa_cp2_devops.pub")
+    }
+
+    os_disk {
+        caching = "ReadWrite"
+        storage_account_type = "Standard_LRS"
+    }
+
+    plan {
+        name = "centos-8-3-free"
+        product = "centos-8-3-free"
+        publisher = "cognosys"
+          }
+
+    source_image_reference {
+        publisher = "cognosys"
+        offer = "centos-8-3-free"
+        sku = "centos-8-3-free"
+        version = "1.2019.0810"
+    }
+
+    boot_diagnostics {
+        storage_account_uri = azurerm_storage_account.stAccount.primary_blob_endpoint
+    }
+
+    tags = {
+        environment = "lab-0001"
+    }
+}
+</code></pre></div></div>
+
+<h1 id="despliegue-automatizado-de-la-infraestructura-con-terraform">Despliegue automatizado de la infraestructura con Terraform</h1>
+
+<p>Una vez configuramos todos los archivos .tf es hora de preparar, planear y aplicar.</p>
+
+<ol>
+  <li>Preparar la infraestructura</li>
+</ol>
+
+<p>La primera vez que se va a realizar un despliegue o tras aplicar cambios en los archivos .tf debemos inicializar la configuración de Terraform, para ello ejecutamos el siguiente comando:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform init
+</code></pre></div></div>
+<p>Si todo ha ido correctamente debemos obtener el siguiente resultado:</p>
+
+<p><img src="/images/terraform-init.png" alt="Ejecución de 'terraform init'" /></p>
+
+<ol>
+  <li>Realizar un plan</li>
+</ol>
+
+<p>El segundo paso es realizar un terraform plan. Esta funcionalidad nos permite ver las acciones que se van a realizar para lograr el estado deseado, para ello ejecutamos el siguiente comando:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform plan
+</code></pre></div></div>
+<p>Debemos obtener una salida sin errores, donde nos detalle que recursos vamos añadir, actualizar o destruir.</p>
+
+<p>Si observamos toda la salida, nos vendrá marcada con un + sobre todos los reucrsos que se van a crear. Esto puede variar cuando realicemos un cambio a futuro, si un recurso se va a destruir viene indicado con un -, si se va actualizar con un ~. De esta forma nos permite ver las acciones que se van a llevar a cabo antes del despligue.</p>
+
+<p><img src="/images/terraform-plan.png" alt="Ejecución de 'terraform plan'" /></p>
+
+<ol>
+  <li>Aplicar el despliegue</li>
+</ol>
+
+<p>Por último, para aplicar el despliegue tendremos que ejecutar el comando</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform apply
+</code></pre></div></div>
+<p>Este comando ejecutará primero un plan, que posteriormente tendremos que aceptar con un ‘yes’ o ‘no’ para realizar o no el despliegue.</p>
+
+<p><img src="/images/terraform-apply.png" alt="Ejecución de 'terraform apply'" /></p>
+
+<p>Durante el despliegue podemos ver la salida de los recursos que se están creado. Tras la finalización podremos observar que recursos se han agregado, actualizado o destruido. En este caso solo se deben crear recursos.</p>
+
+<p><img src="/images/terraform-apply-output.png" alt="Salida obtenida tras aplicar 'terraform apply'" /></p>
+
+<p>Terraform almacena el estado de la infraestructura en un archivo llamado terraform.state. De esta forma Terraform detecta cuando se producen cambios en la infraestructura, compara los archivos .tf con el .state. Si se agregan nuevos recursos a los ficheros .tf detectará que no existen en .state y los creará, si se elimina algún recursos de los archivos .tf detectará que en .state está y los eliminará y por último si se realiza una acutalización de un recurso en el archivo .tf por ejemplo cambiar una IP de estática a dinámica, Terraform detectará que en el .state existe la IP como estática y aplicará el cambio a dinámica.</p>
+
+<p>Tras realizar el despliegue podemos comprobar en Azure los recursos que se han creado:</p>
+
+<p><img src="/images/grupo-de-recursos-lab0001.png" alt="Creación grupo de recursos lab_0001" /></p>
+
+<p><img src="/images/recursos-lab0001.png" alt="Recursos lab_0001" /></p>
+
+<p><img src="/images/vms-lab0001.png" alt="Máquinas virtuales lab_0001" /></p>
+
+<p>Para destruir o eliminar la infraestructura creada tenemos que ejecutar el siguiente comando y confirmar con ‘yes’:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform destroy
+</code></pre></div></div>
+<p><img src="/images/terraform-destroy.png" alt="Ejecución comando 'terraform destroy'" /></p>
+
+<p>Tras confirmar la eliminación obtendremos la siguiente salida:</p>
+
+<p><img src="/images/destroy-output.png" alt="Salida comando 'terraform destroy'" /></p>
+
+<p>Fin del laboratorio, cualquier duda pueden dejar sus comentarios.</p>
 
     </div>
 
-    
-  
-  
+    <div class="post__share">
+      <ul class="share__list list-reset">
+        <li class="share__item">
+          <a class="share__link share__twitter"
+            href="https://twitter.com/intent/tweet?text=Primeros%20pasos%20con%20Terraform%20y%20desplegando%20infraestructura%20como%20c%C3%B3digo%20en%20Azure&url=http://localhost:4000/primeros-pasos-con-terraform-y-desplegando-infraestructura-como-codigo-en-azure"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Compartir en Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+        </li>
+        <li class="share__item">
+          <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/primeros-pasos-con-terraform-y-desplegando-infraestructura-como-codigo-en-azure"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Compartir en Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+        </li>
+        <li class="share__item">
+          <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/primeros-pasos-con-terraform-y-desplegando-infraestructura-como-codigo-en-azure&amp;media=http://localhost:4000/images/terraform-assets.png&amp;description=Primeros%20pasos%20con%20Terraform%20y%20desplegando%20infraestructura%20como%20c%C3%B3digo%20en%20Azure"
+          onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Compartir en Pinterest"
+          rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
+        </li>
+        <li class="share__item">
+          <a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/primeros-pasos-con-terraform-y-desplegando-infraestructura-como-codigo-en-azure&title=Primeros%20pasos%20con%20Terraform%20y%20desplegando%20infraestructura%20como%20c%C3%B3digo%20en%20Azure&summary=Vamos%20a%20instalar%20Terraform%20y%20a%20desplegar%20infraestructura%20en%20Azure&source=Ragagu"
+          onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartir en LinkedIn" rel="nofollow"><i class="ion ion-logo-linkedin"></i></a>
+        </li>
+      </ul>
+    </div>
 
-    <div class="tags__inner">
-    
-      <div class="container">
-        <div class="row">
-          <div class="col col-12">
-            <div class="tag__info">
-              <div class="tag__info-box">
-                <div class="tag__counter">
-                  <span>1</span>
-                  <small>Posts</small>
-                </div>
-                <h2 class="tag__name" id="Exchange+Online">Exchange Online</h2>
-              </div>
-              <a class="top__link" href="#top">Return to top</a>
+
+  </article>
+</div>
+<!-- end post -->
+
+
+
+
+
+
+
+<!-- begin related posts -->
+<div class="container">
+  <section class="related-posts  animate">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">You may also like</h2>
+              <a class="section__link" href="/blog">
+                
+                
+                  
+                    <a href="/tags#Terraform" class="section__link related-tag">See all<span> Terraform</span></a>
+                  
+                
+                  
+                
+              
+              </a>
             </div>
+          </div>
+          <div class="row">
+
+          
+            
+            
+      
+            
+      
+            
+            
+            
+            
+      
+            
+      
+            
+            
           </div>
         </div>
       </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col col-12">
-            <div class="row">
-            
-              
-                <div class="article col col-4 col-d-6 col-t-12">
-  <div class="article__inner">
-
-    <div class="article__head">
-      <time class="article__date" datetime="2022-03-19T13:01:35+01:00">19 Mar 2022</time>
-
-      
-
-      
-      <a class="article__image" href="/activar-desactivar-autenticacion-smtp-cuentas-exchange-online">
-        <img class="lazy" data-src="/images/activar-desactivar-smtp.webp" alt="Activar/desactivar la autenticación SMTP en cuentas de Exchange Online">
-      </a>
-      
-
     </div>
+  </section>
+</div>
+<!-- end related posts -->
 
-    <div class="article__content">
 
-      <h2 class="article__title">
-        <a href="/activar-desactivar-autenticacion-smtp-cuentas-exchange-online">Activar/desactivar la autenticación SMTP en cuentas de Exchange Online</a>
-      </h2>
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <!-- begin comments -->
+<div class="show-comments">
+  <button class="button disqus-button" id="show-comments-button" onclick="disqus();return false;">Ver comentarios</button>
+</div>
 
-      
-      <p class="article__excerpt">Se recomienda habilitar la autenticación SMTP solo para las cuentas o buzones que lo requieran...</p>
-      
+<div id="disqus_thread" class="post__comments">
+  <div id="disqus_empty"></div>
+</div>
 
+<script>
+  var disqus_loaded = false;
+  var disqus_shortname = 'ragagu';
+  var disqus_container = document.getElementById("disqus_thread");
+  function disqus() {
+    if (!disqus_loaded) {
+      disqus_loaded = true;
+      var e = document.createElement("script");
+      e.type = "text/javascript";
+      e.async = true;
+      e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+      (document.getElementsByTagName("head")[0] ||
+        document.getElementsByTagName("body")[0])
+        .appendChild(e);
+      // Hide the button after opening
+      document.getElementById("show-comments-button").style.display = "none";
+      // Show disqus comments
+      disqus_container.classList.add("is-open");
+    }
+  }
+</script>
+
+<noscript>Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<!-- end comments --> 
+      </div>
     </div>
   </div>
-</div>
-              
-            
-            </div>
-          </div>
-        </div>
-      </div>
 
-    </div>
-
-    
-  
-  
-
-    <div class="tags__inner">
-    
-      <div class="container">
-        <div class="row">
-          <div class="col col-12">
-            <div class="tag__info">
-              <div class="tag__info-box">
-                <div class="tag__counter">
-                  <span>1</span>
-                  <small>Posts</small>
-                </div>
-                <h2 class="tag__name" id="Microsoft+365">Microsoft 365</h2>
-              </div>
-              <a class="top__link" href="#top">Return to top</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col col-12">
-            <div class="row">
-            
-              
-                <div class="article col col-4 col-d-6 col-t-12">
-  <div class="article__inner">
-
-    <div class="article__head">
-      <time class="article__date" datetime="2022-03-19T13:01:35+01:00">19 Mar 2022</time>
-
-      
-
-      
-      <a class="article__image" href="/activar-desactivar-autenticacion-smtp-cuentas-exchange-online">
-        <img class="lazy" data-src="/images/activar-desactivar-smtp.webp" alt="Activar/desactivar la autenticación SMTP en cuentas de Exchange Online">
-      </a>
-      
-
-    </div>
-
-    <div class="article__content">
-
-      <h2 class="article__title">
-        <a href="/activar-desactivar-autenticacion-smtp-cuentas-exchange-online">Activar/desactivar la autenticación SMTP en cuentas de Exchange Online</a>
-      </h2>
-
-      
-      <p class="article__excerpt">Se recomienda habilitar la autenticación SMTP solo para las cuentas o buzones que lo requieran...</p>
-      
-
-    </div>
-  </div>
-</div>
-              
-            
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    
-  
-  
-
-    <div class="tags__inner">
-    
-      <div class="container">
-        <div class="row">
-          <div class="col col-12">
-            <div class="tag__info">
-              <div class="tag__info-box">
-                <div class="tag__counter">
-                  <span>1</span>
-                  <small>Posts</small>
-                </div>
-                <h2 class="tag__name" id="Terraform">Terraform</h2>
-              </div>
-              <a class="top__link" href="#top">Return to top</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col col-12">
-            <div class="row">
-            
-              
-                <div class="article col col-4 col-d-6 col-t-12">
-  <div class="article__inner">
-
-    <div class="article__head">
-      <time class="article__date" datetime="2022-04-30T12:40:23+02:00">30 Apr 2022</time>
-
-      
-
-      
-      <a class="article__image" href="/primeros-pasos-con-terraform-y-desplegando-infraestructura-como-codigo-en-azure">
-        <img class="lazy" data-src="/images/terraform-assets.png" alt="Primeros pasos con Terraform y desplegando infraestructura como código en Azure">
-      </a>
-      
-
-    </div>
-
-    <div class="article__content">
-
-      <h2 class="article__title">
-        <a href="/primeros-pasos-con-terraform-y-desplegando-infraestructura-como-codigo-en-azure">Primeros pasos con Terraform y desplegando infraestructura como código en Azure</a>
-      </h2>
-
-      
-      <p class="article__excerpt">Vamos a instalar Terraform y a desplegar infraestructura en Azure</p>
-      
-
-    </div>
-  </div>
-</div>
-              
-            
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    
-  
-  
-
-</section>
-<!-- end tags -->
   </main>
   <!-- end content -->
 

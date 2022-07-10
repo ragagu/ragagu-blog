@@ -1,0 +1,182 @@
+I"�3<p>En el siguiente lab voy a instalar y configurar <strong>Terraform</strong> en una máquina Windows 11 con <strong>WSL</strong>, haciendo uso de la distribución <strong>Ubuntu 22.04 LTS</strong>, pero, el despliegue se puede llevar a cabo desde cualquier máquina con Linux. Posteriormente voy a desplegar la siguiente infraestructura en <strong>Azure</strong>:</p>
+
+<ul>
+  <li>Un grupo de recursos.</li>
+  <li>Una máquina virtual con 2vCPU, 4GB de RAM y 30GB HDD con una imagen CentOS (master).</li>
+  <li>Dos máquinas virtuales con 1vCPU, 2GB de RAM y 30GB HDD con una imagen CentOS (workers).</li>
+  <li>Tres IPs públicas dinámicas.</li>
+  <li>Una red virtual.</li>
+  <li>Un grupo de seguridad de red (NSG).</li>
+</ul>
+
+<h1 id="preparación-del-entorno-para-automatizar-el-despliegue">Preparación del entorno para automatizar el despliegue</h1>
+
+<p><strong>En primer lugar</strong>, tenemos que instalar Terraform en la máquina Linux donde se va automatizar el despliegue. De forma predeterminada, Terraform no está incluido en el repositorio estándar de Ubuntu. Debemos instalar los siguientes paquetes:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install curl gnupg2 software-properties-common -y
+</code></pre></div></div>
+<p>Posteriormente agregamos la clave GPG Terraform y el respositorio:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com 
+$(lsb_release -cs) main"
+</code></pre></div></div>
+<p>Por último instalamos Terraform:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install terraform -y
+</code></pre></div></div>
+<p>Para verificar la instalación de Terraform ejecutamos:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform -v
+</code></pre></div></div>
+<p><img src="/images/terraform-v.png" alt="Ejecución de 'terraform -v'" /></p>
+
+<p><strong>En segundo lugar</strong>, tenemos que crear un service principal para conectar el provider azurerm de Terraform con nuestro tenant de Azure. Hacemos uso de <strong>Azure CLI</strong>. Instalamos Azure CLI mediante el siguiente comando:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+</code></pre></div></div>
+<p>Para crear un service principal tenemos que conectarnos al tenant de Azure con:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> az login
+</code></pre></div></div>
+
+<p>Con el siguiente comando creamos el service principal:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/529ff35f-375b-xxxx-xxxx-xxxxxxxxxxxx"
+</code></pre></div></div>
+<p><img src="/images/creacion-service-principal.png" alt="Creación de un service principal" /></p>
+
+<h2 id="creación-de-estructura-de-directorio-y-archivos-terraform">Creación de estructura de directorio y archivos Terraform</h2>
+
+<p>Clonamos el siguiente repositorio en la máquina donde vamos automatizar el despliegue de la infraestructura con Terrafrom <code class="language-plaintext highlighter-rouge">https://github.com/ragagu/laboratorios</code></p>
+
+<blockquote>
+  <p>Para instalar Git ejecuta el comando <code class="language-plaintext highlighter-rouge">sudo apt install git</code></p>
+</blockquote>
+
+<p>Accedemos al directorio laboratorios/terraform/0001 y vemos la estructura de archivos siguientes:</p>
+
+<ul>
+  <li>main.tf</li>
+  <li>network.tf</li>
+  <li>security.tf</li>
+  <li>vars.tf</li>
+  <li>vm.tf</li>
+</ul>
+
+<h3 id="configuración-de-archivo-varstf">Configuración de archivo vars.tf</h3>
+
+<ul>
+  <li>En este fichero declaramos todas las variables.</li>
+  <li>Declaramos la localización para ubicar en la región donde se van a desplegar los recursos. Para ver las regiones disponibles: az account list-locations</li>
+  <li>Declaramos la variable para el nombre de la talla de la máquina virtual máster. Para ver las tallas disponibles en la región seleccionada: az vm list-sizes –location westeurope</li>
+  <li>Declaramos la variable para el nombre de la talla de las máquinas workers. Como las dos VM workers van a ser iguales, solamente va a cambiar el nombre, aplicamos el tipo lists(string) y los nombres de ambas VM en default. En los archivos main.tf, network.tf, security.tf y vm.tf haremos uso de count para configurar estas dos VMs.</li>
+</ul>
+
+<p>Nota: si estás haciendo uso de una suscripción de educación o pruebas están limitadas a un máximo de 4 Cores, este límite se puede ampliar, pero no es posible hacerlo con este tipo de suscripción, la solución es pasar a una suscripción de pago por uso.</p>
+
+<p>Contenido archivo vars.tf:</p>
+
+<h3 id="configuración-de-archivo-maintf">Configuración de archivo main.tf</h3>
+
+<ul>
+  <li>Configuramos el provider del que hará uso Terraform, en este caso azurerm.</li>
+  <li>Incluimos la información del service principal creado en el punto 3.2.</li>
+  <li>Creamos y configuramos un grupo de recursos.</li>
+  <li>Creamos y configuramos una cuenta de almacenamiento.</li>
+</ul>
+
+<p>Nota: como podemos ver para la configuración location se hace llamamiento a la variable var.location, de esta forma se configuraría West Europe, tal y como está definido en vars.tf. Como podemos observar en todos los recursos hay que indicar el nombre del grupo de recursos donde se va a desplegar, como el nombre ya está definido en la creación del grupo de recursos el llamamiento al nombre de este en la creación de otros recursos se establece de la siguiente forma azurerm_resource_group.rg.name.</p>
+
+<p>Contenido archivo main.tf</p>
+
+<h3 id="configuración-del-archivo-networktf">Configuración del archivo network.tf</h3>
+
+<ul>
+  <li>Definimos una vnet: 10.0.0.0/16</li>
+  <li>Definimos una subnet: 10.0.1.0/24</li>
+  <li>La subnet debe estar contenida dentro de la vnet.</li>
+  <li>La NIC de todas las VMs deben estar contenidas dentro del mismo espacio de direcciones de la subnet.</li>
+  <li>Asignamos un IP privada estática a las VMs.</li>
+  <li>Creamos una IP pública dinámica para poder acceder desde fuera de Azure.</li>
+</ul>
+
+<p>Nota: la asignación de una IP pública estática incrementa el coste de este recurso, sin embargo, la asignación de una IP privada estática es gratuita. Al configurar la IP pública dinámica, con el encendido y apagado de las VMs la dirección puede cambiar. En la creación de los workers en el nombre del recurso se establece -${var.workers[count.index]} para que automáticamente coja del fichero vars.tf de la variable workers los nombres definidos en default. Para que eso funcione se declara también en el recurso a crear count = length(var.workers). Como a la VM master le hemos dado la IP 10.0.1.10, para que los workers se asignen automáticamente la primera IP privada libre a partir de las 10.0.1.11 para que no se duplique la IP del master, aplicamos la siguiente configuración private_ip_address = “10.0.1.${count.index + 11}”.</p>
+
+<p>Contenido de archivo network.tf</p>
+
+<h3 id="configuración-del-archivo-securitytf">Configuración del archivo security.tf</h3>
+
+<ul>
+  <li>Creamos un grupo de seguridad de red (NSG).</li>
+  <li>En el NSG definimos el tráfico que vamos a autorizar incluyendo reglas de seguridad. De momento solo se va a permitir la regla de entrada por SSH.</li>
+  <li>Asociamos el NSG con todas las NIC de las VMs que se van a desplegar. De esta forma la regla que creamos se aplica a todas las VMs.</li>
+</ul>
+
+<p>Contenido del archivo security.tf</p>
+
+<h3 id="configuración-del-archivo-vmtf">Configuración del archivo vm.tf</h3>
+
+<ul>
+  <li>Definimos la creación de la VM master.</li>
+  <li>Definimos la creación de las VMs workers.</li>
+  <li>Definimos el tamaño.</li>
+  <li>Le asignamos las NICs creadas en network.tf.</li>
+  <li>Indicamos el usuario administrador.</li>
+  <li>Especificamos la clave pública para el usuario administrador. Para crear una clave SSH, para poder conectarnos a la VM hacemos uso del siguiente comando ssh-keygen -t rsa -b 4096. Por defecto la clave se almacena en ~/.ssh, el nombre que le hemos asignado es id_rsa_cp2_devops porque ya disponía de una clave con el nombre por defecto (id_rsa). No hemos asignado una contraseña a la clave para esta práctica. Una vez dispongamos de la clave SSH hay que restablecer la ruta de la misma en el fichero vm.tf.</li>
+  <li>Utilizaremos el usuario especificado y la clave privada asociada a la pública para acceder a la VM.</li>
+  <li>Definimos el tipo de disco y la replicación (Standar_LRS).</li>
+  <li>Cuando definamos images del Marketplace tendremos que definir plan y source_image_reference con los datos de la imagen que utilizaremos.</li>
+  <li>Definimos la storage account a utilizar para almacenar información de troubleshooting.</li>
+</ul>
+
+<p>Nota: para definir la imagen a desplegar del Marketplace, para ver todas las disponibles con CentOS ejecutamos el siguiente comando az vm image list –offer CentOS –all –output table desde la salida que nos da en formato tabla podemos elegir la imagen y tendremos otros datos necesarios para incluir en vm.tf como son offer, publisher, version, name, plan, sku y product. Una vez seleccionada una imagen, tendremos que aceptar los términos de uso de esta, si no, porque desde Terraform no es posible aceptar esos términos y condiciones. Para esta práctica se ha elefido la siguiente imagen:</p>
+
+<p>name = “centos-8-3-free”
+product = “centos-8-3-free”
+publisher = “cognosys”
+offer = “centos-8-3-free”
+sku = “centos-8-3-free”
+version = “1.2019.0810”</p>
+
+<p>Por lo tanto, el comando a ejecutar para aceptar los términos y condiciones es:</p>
+
+<p>az vm image terms accept –offer centos-8-3-free –plan 1.2019.0810 –publisher cognosys</p>
+
+<p>Contenido del archivo vm.tf</p>
+
+<h1 id="despliegue-automaticado-de-la-infraestructura-con-terraform">Despliegue automaticado de la infraestructura con Terraform</h1>
+
+<p>Una vez configuramos todos los archivos .tf es hora de preparar, planear y aplicar.</p>
+
+<ol>
+  <li>Preparar la infraestructura</li>
+</ol>
+
+<p>La primera vez que se va a realizar un despliegue o tras aplicar cambios en los archivos .tf debemos inicializar la configuración de Terraform, para ello ejecutamos el siguiente comando:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform init
+</code></pre></div></div>
+<p>Si todo ha ido correctamente debemos obtener el siguiente resultado:</p>
+
+<p><img src="/images/terraform-init.png" alt="Ejecución de 'terraform init'" /></p>
+
+<ol>
+  <li>Realizar un plan</li>
+</ol>
+
+<p>El segundo paso es realizar un terraform plan. Esta funcionalidad nos permite ver las acciones que se van a realizar para lograr el estado deseado, para ello ejecutamos el siguiente comando:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform plan
+</code></pre></div></div>
+<p>Debemos obtener una salida sin errores, donde nos detalle que recursos vamos añadir, actualizar o destruir.</p>
+
+<p>Si observamos toda la salida, nos vendrá marcada con un + sobre todos los reucrsos que se van a crear. Esto puede variar cuando realicemos un cambio a futuro, si un recurso se va a destruir viene indicado con un -, si se va actualizar con un ~. De esta forma nos permite ver las acciones que se van a llevar a cabo antes del despligue.</p>
+
+<p><img src="/images/terraform-plan.png" alt="Ejecución de 'terraform plan'" /></p>
+
+<ol>
+  <li>Aplicar el despliegue</li>
+</ol>
+
+<p>Por último, para aplicar el despliegue tendremos que ejecutar el comando</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terraform apply
+</code></pre></div></div>
+<p>Este comando ejecutará primero un plan, que posteriormente tendremos que aceptar con un ‘yes’ o ‘no’ para realizar o no el despliegue.</p>
+
+<p><img src="/images/terraform-apply.png" alt="Ejecución de 'terraform apply'" /></p>
+
+<p>Terraform almacena el estado de la infraestructura en un archivo llamado terraform.state. De esta forma Terraform detecta cuando se producen cambios en la infraestructura, comapra los archivos .tf con el .state. Si se agregan nuevos recursos a los ficheros .tf detectará que no existen en .state y los creará, si se elimina algún recursos de los archivos .tf detectará que en .state está y los eliminará y por último si se realiza una acutalización de un recurso en el archivo .tf por ejemplo cambiar una IP de estática a dinámica, Terraform detectará que en el .state existe la IP como estática y aplicará el cambio a dinámica.</p>
+:ET
