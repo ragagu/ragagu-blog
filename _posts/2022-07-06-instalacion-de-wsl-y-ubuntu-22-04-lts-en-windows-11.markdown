@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Instalación de WSL y Ubuntu 22.04 LTS en Windows 11
-description: Instalamos WSL y Ubuntu 22.04 LTS en Windows 11.
+title:  Instalación de subsistema de Windows para Linux (WSL) y Ubuntu 22.04 LTS
+description: Instalamos WSL y Ubuntu 22.04 LTS en Windows 11. Mostramos también una serie de comandos útiles para la gestión de WSL.
 date:   2022-07-06 12:57:17 +0300
 image:  '/images/instalando-ubuntu-22-04-lts-wsl.png'
 tags:   [Windows 11, Ubuntu 22.04 LTS, WSL]
