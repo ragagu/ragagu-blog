@@ -7,7 +7,7 @@ image:  '/images/terraform-assets.png'
 tags:   [Terraform, Azure]
 ---
 
-En el siguiente lab voy a instalar y configurar **Terraform** en una máquina Windows 11 con **WSL**, haciendo uso de la distribución **Ubuntu 22.04 LTS**, pero, el despliegue se puede llevar a cabo desde cualquier máquina con Linux. Posteriormente voy a desplegar la siguiente infraestructura en **Azure**:
+En el siguiente lab voy a instalar y configurar **Terraform** en una máquina [Windows 11 con **WSL**, haciendo uso de la distribución **Ubuntu 22.04 LTS**](https://ragagu.es/instalacion-de-wsl-y-ubuntu-22-04-lts-en-windows-11 "Instalación de WSL y Ubuntu 22.04 LTS en Windows 11"), pero, el despliegue se puede llevar a cabo desde cualquier máquina con Linux. Posteriormente voy a desplegar la siguiente infraestructura en **Azure**:
 
 - Un grupo de recursos.
 - Una máquina virtual con 2vCPU, 4GB de RAM y 30GB HDD con una imagen CentOS (master).
