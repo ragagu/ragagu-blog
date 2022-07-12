@@ -5,8 +5,8 @@
         <description>Un espacio personal de tecnología para compartir</description>
         <link>http://localhost:4000/</link>
         <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 12 Jul 2022 20:10:04 +0200</pubDate>
-        <lastBuildDate>Tue, 12 Jul 2022 20:10:04 +0200</lastBuildDate>
+        <pubDate>Wed, 13 Jul 2022 01:35:50 +0200</pubDate>
+        <lastBuildDate>Wed, 13 Jul 2022 01:35:50 +0200</lastBuildDate>
         <generator>Jekyll v4.2.2</generator>
         
             <item>
@@ -583,6 +583,42 @@ resource &quot;azurerm_linux_virtual_machine&quot; &quot;vmsworkers&quot; {
 &lt;p&gt;Al volver ejecutar Ubuntu 22.04 LTS, ya podremos trabajar desde el terminal.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/terminal-ubuntu-22-04-wsl.png&quot; alt=&quot;Terminal Ubuntu 22.04 LTS en WSL &quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;otros-comandos-útiles&quot;&gt;Otros comandos útiles&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ver lista de distribuciones disponibles.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wsl --list --online
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;Instalar una distribución disponible.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wsl --install -d &amp;lt;DistroName&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Enumerar distribuciones instaladas con la versión WSL establecida.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wsl -l -v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Establecer la versión predeterminada en WSL 1 o WSL 2 cuando se instala una distribución (reemplazar &amp;lt;Version#&amp;gt; por 1 o 2).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wsl --set-default-version &amp;lt;Version#&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Actualizar distribución de WSL 1 a WSL 2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wsl --set-default-version &amp;lt;Version#&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
                 <pubDate>Wed, 06 Jul 2022 11:57:17 +0200</pubDate>
                 <link>http://localhost:4000/instalacion-de-wsl-y-ubuntu-22-04-lts-en-windows-11</link>

@@ -57,3 +57,34 @@ Por último y si todo ha ido bien nos confirmará el éxito de la configuración
 Al volver ejecutar Ubuntu 22.04 LTS, ya podremos trabajar desde el terminal.
 
 ![Terminal Ubuntu 22.04 LTS en WSL ](/images/terminal-ubuntu-22-04-wsl.png)
+
+# Otros comandos útiles
+
+- Ver lista de distribuciones disponibles.
+
+```
+wsl --list --online
+```
+- Instalar una distribución disponible.
+
+```
+wsl --install -d <DistroName>
+```
+
+- Enumerar distribuciones instaladas con la versión WSL establecida.
+
+```
+wsl -l -v
+```
+
+- Establecer la versión predeterminada en WSL 1 o WSL 2 cuando se instala una distribución (reemplazar <Version#> por 1 o 2).
+
+```
+wsl --set-default-version <Version#>
+```
+
+- Actualizar distribución de WSL 1 a WSL 2
+
+```
+wsl --set-default-version <Version#>
+```

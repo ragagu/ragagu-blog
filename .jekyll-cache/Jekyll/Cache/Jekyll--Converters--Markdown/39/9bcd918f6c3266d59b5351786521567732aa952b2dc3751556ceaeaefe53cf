@@ -1,0 +1,61 @@
+I"�<p>En el siguiente artículo vamos habilitar WSL, una característica integrada en Windows 11 que nos permitirá ejecutar una distribución de Linux. Tomaremos de ejemplo la distribución de Ubuntu 22.04 LTS.</p>
+
+<h1 id="habilitar-subsistema-de-windows-para-linux-wsl">Habilitar subsistema de Windows para Linux (WSL)</h1>
+
+<p>Hay dos opciones para habilitar esta características, desde PowerShell o desde la configuración de Windows 11.</p>
+
+<p>Para habilitar WSL <strong>desde PowerShell</strong> ejecutamos el siguiente comando:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --install
+</code></pre></div></div>
+<p>Para habilitarlo desde el entorno gráfico de Windows 11 tenemos que ir a menú inicio, configuración, aplicaciones, características opcionales, más características de Windows y marcamos Subsistema de Windows para Linux.</p>
+
+<p><img src="/images/activar-subsistema-de-windows-para-linux.png" alt="Activar subsistemas de Windows para Linux" /></p>
+
+<blockquote>
+  <p>Una vez habilitado WSL será necesario aplicar un reinicio del sistema.</p>
+</blockquote>
+
+<h1 id="instalar-ubuntu-2204-lts">Instalar Ubuntu 22.04 LTS</h1>
+
+<p>Para la instalación de la distribución Ubuntu 22.04 LTS, realizamos la busqueda de esta en Microsoft Store.</p>
+
+<p><img src="/images/ubuntu-22-04-microsoft-store.png" alt="Ubuntu 22.04 LTS en Microsoft Store" /></p>
+
+<p>Tras finalizar la instalación hacemos la busqueda de Ubuntu desde el menú inicio y lo ejecutamos.</p>
+
+<p><img src="/images/ubuntu-22-04-menu-inicio.png" alt="Ubuntu 22.04 en menú inicio Windows 11" /></p>
+
+<p>Se ejecutará el asistente de instalación y configuración de Ubuntu en WSL. Este proceso puede tardar unos minutos.</p>
+
+<p><img src="/images/asistente-instalacion-ubuntu-wsl.png" alt="Asistente de instalación de Ubuntu en WSL" /></p>
+
+<p>Configuramos el idioma de la distribución.</p>
+
+<p><img src="/images/idioma-ubuntu-22-04-wsl.png" alt="Configuración idioma Ubuntu 22.04 LTS en WSL" /></p>
+
+<p>Establecemos un nombre de usuario y contraseña para el inicio de sesión en Ubuntu.</p>
+
+<p><img src="/images/usuario-contraseña-ubuntu-22-04-wsl.png" alt="Configuración usuario y contraseña en Ubuntu 22.04 LTS en WSL" /></p>
+
+<p>Indicamos la ubicación de montaje y la regeneración del archivo host y resolv.conf. Aplicar la configuración que se adapte a vuestras necesidades, en este caso, para este artículo he dejado las opciones por defecto.</p>
+
+<p><img src="/images/opciones-montaje-ubuntu-22-04-wsl.png" alt="Opciones de montaje, regeneración de archivo host y resolv.conf" /></p>
+
+<p>Por último y si todo ha ido bien nos confirmará el éxito de la configuración.</p>
+
+<p><img src="/images/fin-configuracion-ubuntu-22-04-wsl.png" alt="Fin configuración Ubuntu 22.04 LTS en WSL" /></p>
+
+<p>Al volver ejecutar Ubuntu 22.04 LTS, ya podremos trabajar desde el terminal.</p>
+
+<p><img src="/images/terminal-ubuntu-22-04-wsl.png" alt="Terminal Ubuntu 22.04 LTS en WSL " /></p>
+
+<h1 id="otros-comandos-útiles">Otros comandos útiles</h1>
+
+<ul>
+  <li>Ver lista de distribuciones disponibles</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --list --online
+</code></pre></div></div>
+:ET

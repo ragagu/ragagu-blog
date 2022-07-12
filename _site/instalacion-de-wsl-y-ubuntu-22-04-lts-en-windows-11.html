@@ -309,6 +309,42 @@
 
 <p><img src="/images/terminal-ubuntu-22-04-wsl.png" alt="Terminal Ubuntu 22.04 LTS en WSL " /></p>
 
+<h1 id="otros-comandos-útiles">Otros comandos útiles</h1>
+
+<ul>
+  <li>Ver lista de distribuciones disponibles.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --list --online
+</code></pre></div></div>
+<ul>
+  <li>Instalar una distribución disponible.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --install -d &lt;DistroName&gt;
+</code></pre></div></div>
+
+<ul>
+  <li>Enumerar distribuciones instaladas con la versión WSL establecida.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl -l -v
+</code></pre></div></div>
+
+<ul>
+  <li>Establecer la versión predeterminada en WSL 1 o WSL 2 cuando se instala una distribución (reemplazar &lt;Version#&gt; por 1 o 2).</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --set-default-version &lt;Version#&gt;
+</code></pre></div></div>
+
+<ul>
+  <li>Actualizar distribución de WSL 1 a WSL 2</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --set-default-version &lt;Version#&gt;
+</code></pre></div></div>
+
     </div>
 
     <div class="post__share">
