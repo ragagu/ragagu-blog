@@ -23,14 +23,6 @@
   }
 }
 
-.hero__inner2 {
-  align-items: center;
-
-  @media only screen and (max-width: $desktop) {
-    flex-direction: column;
-  }
-}
-
 .hero__left {
   max-width: 450px;
   margin-right: auto;
